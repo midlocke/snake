@@ -1,0 +1,44 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>release</id>
+    <baseDirectory>/</baseDirectory>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>target/classes/</directory>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+<!--
+        <dependencySet>
+            <unpack>true</unpack>
+            <outputDirectory>/lib</outputDirectory>
+            <includes>
+                <include>com.whhxz.snake.lapm.core</include>
+            </includes>
+        </dependencySet>
+-->
+
+        <dependencySet>
+            <unpack>true</unpack>
+            <useProjectArtifact>false</useProjectArtifact>
+            <scope>runtime</scope>
+            <includes>
+                <include>com.whhxz.snake:lapm-core</include>
+            </includes>
+        </dependencySet>
+        <dependencySet>
+            <unpack>true</unpack>
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>/libs</outputDirectory>
+            <excludes>
+                <exclude>com.whhxz.snake:lapm-core</exclude>
+            </excludes>
+        </dependencySet>
+
+    </dependencySets>
+</assembly>
